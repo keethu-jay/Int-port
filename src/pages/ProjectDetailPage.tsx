@@ -167,37 +167,39 @@ export default function ProjectDetailPage() {
             </div>
           ) : project.id === 'hospital-management' && project.demoUrl ? (
             <section className="mt-8 rounded-2xl border-2 border-primary-pink/60 bg-ink-dark/80 p-4 shadow-xl">
+              <p className="mb-4 rounded-lg bg-primary-pink/15 border border-primary-pink/40 px-3 py-2 text-sm text-page-on-green">
+                <span className="font-semibold text-primary-pink">Note:</span> The live demo opens in a new tab. It is designed for <strong>web (desktop) only</strong>; on mobile it may not work as intended—please use a desktop browser for the full experience.
+              </p>
               <div className="flex flex-col lg:flex-row gap-4">
                 <div className="flex-1">
                   <h2 className="font-display text-lg font-semibold text-primary-blue mb-3">
-                    Interactive Demo
+                    Live Demo
                   </h2>
-                  <div className="relative w-full overflow-hidden rounded-xl bg-page-bg/60 shadow-lg" style={{ paddingTop: '75%' }}>
-                    <iframe
-                      src={project.demoUrl}
-                      className="absolute inset-0 h-full w-full rounded-xl border-0"
-                      title="Hospital Service System interactive demo"
-                      allow="fullscreen"
+                  <div className="relative w-full overflow-hidden rounded-xl bg-page-bg/60 shadow-lg aspect-video">
+                    <img
+                      src={project.thumbnail}
+                      alt="Hospital Service System preview"
+                      className="h-full w-full object-cover opacity-90"
                     />
-                  </div>
-                  <div className="mt-3 flex items-center justify-between gap-3">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full bg-primary-blue px-4 py-2 text-sm font-medium text-white hover:opacity-90"
-                    >
-                      Open in new tab
-                    </a>
-                    <button
-                      type="button"
-                      onClick={copyDemoUrl}
-                      className="inline-flex items-center gap-2 rounded-full bg-primary-pink/20 px-4 py-2 text-sm font-medium text-primary-pink hover:bg-primary-pink/30"
-                      title="Copy demo URL"
-                    >
-                      <CopyIcon />
-                      Copy link
-                    </button>
+                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-ink-dark/60 rounded-xl">
+                      <a
+                        href={project.demoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full bg-primary-blue px-6 py-3 text-sm font-semibold text-white hover:opacity-90 shadow-lg"
+                      >
+                        Open live demo in new tab
+                      </a>
+                      <button
+                        type="button"
+                        onClick={copyDemoUrl}
+                        className="inline-flex items-center gap-2 rounded-full bg-primary-pink/20 px-4 py-2 text-sm font-medium text-primary-pink hover:bg-primary-pink/30"
+                        title="Copy demo URL"
+                      >
+                        <CopyIcon />
+                        Copy link
+                      </button>
+                    </div>
                   </div>
                 </div>
                 <div className="lg:w-80 flex-shrink-0">
