@@ -1,0 +1,302 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Portfolio color scheme – green main background, blue & pink accents */
+:root {
+  /* Main background – green */
+  --color-bg: #1e332b;
+  /* Accent colors */
+  --color-primary-green: #2D5A4A;
+  --color-primary-blue: #3B82A8;
+  --color-primary-pink: #D3968C;
+  /* Text on dark green background */
+  --color-ink-dark: #0A3323;
+  --color-ink-mid: #105666;
+  --color-ink-light: #4A6B62;
+  --color-text-on-green: #F7F4D5;
+  --color-text-muted: #b8c4b0;
+  /* Pond / UI palette */
+  --color-pond-bg: #F7F4D5;
+  --color-pond-midnight: #105666;
+  --color-pond-dark: #0A3323;
+  --color-pond-moss: #839958;
+  --color-pond-rosy: #D3968C;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  cursor: none;
+  /* Main background: deep green, not yellow/cream */
+  background-color: var(--color-bg);
+  color: var(--color-text-on-green);
+}
+
+/* Liquid-glass cursor bubble */
+.cursor-glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px) saturate(1.35);
+  -webkit-backdrop-filter: blur(12px) saturate(1.35);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.22) inset,
+    0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.cursor-glass::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at 30% 28%,
+    rgba(255, 255, 255, 0.55),
+    rgba(255, 255, 255, 0.12) 30%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  opacity: 0.9;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+.cursor-glass::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at 70% 80%,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0) 55%
+  );
+  pointer-events: none;
+}
+
+/* Softer tail segments – water trail */
+.cursor-glass-tail {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px) saturate(1.2);
+  -webkit-backdrop-filter: blur(8px) saturate(1.2);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+}
+
+/* Show default cursor for text inputs and textareas */
+input,
+textarea,
+select,
+button {
+  cursor: none;
+}
+
+/* Ensure cursor follower works on all interactive elements */
+a,
+button,
+[role="button"] {
+  cursor: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes fish-swim {
+  0%, 100% { transform: translateX(0) rotate(0deg); }
+  25% { transform: translateX(3px) rotate(2deg); }
+  75% { transform: translateX(-3px) rotate(-2deg); }
+}
+
+/* Design system – gradients, glows, patterns. Blue & pink clearly visible. */
+.bg-mesh {
+  background-image:
+    radial-gradient(ellipse 90% 60% at 15% 25%, rgba(59, 130, 168, 0.35) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 85% 75%, rgba(211, 150, 140, 0.32) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 40% at 50% 50%, rgba(45, 90, 74, 0.25) 0%, transparent 50%);
+}
+
+/* Section backgrounds – use on full-width sections for Squarespace-style variety */
+.section-blue {
+  background: linear-gradient(135deg, rgba(59, 130, 168, 0.22) 0%, rgba(59, 130, 168, 0.08) 100%);
+}
+
+.section-pink {
+  background: linear-gradient(135deg, rgba(211, 150, 140, 0.22) 0%, rgba(211, 150, 140, 0.08) 100%);
+}
+
+/* Transparent hover overlays – visible blue or pink on hover */
+.hover-overlay-blue {
+  position: relative;
+}
+.hover-overlay-blue::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(59, 130, 168, 0.4);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.hover-overlay-blue:hover::after {
+  opacity: 1;
+}
+
+.hover-overlay-pink {
+  position: relative;
+}
+.hover-overlay-pink::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(211, 150, 140, 0.4);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.hover-overlay-pink:hover::after {
+  opacity: 1;
+}
+
+.bg-grid-subtle {
+  background-image:
+    linear-gradient(rgba(247, 244, 213, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(247, 244, 213, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.text-gradient-hero {
+  background: linear-gradient(135deg, #F7F4D5 0%, #a8d4e6 40%, #f5c6bf 70%, #F7F4D5 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-pink {
+  box-shadow: 0 0 30px rgba(211, 150, 140, 0.25);
+}
+
+.glow-blue {
+  box-shadow: 0 0 30px rgba(59, 130, 168, 0.3);
+}
+
+/* Neon hover frame for nav pills */
+.nav-neon {
+  position: relative;
+}
+.nav-neon::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 999px;
+  border: 1px solid rgba(59, 130, 168, 0.0);
+  box-shadow: 0 0 0 rgba(59, 130, 168, 0);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.nav-neon:hover::before {
+  border-color: rgba(59, 130, 168, 0.9);
+  box-shadow:
+    0 0 16px rgba(59, 130, 168, 0.9);
+}
+
+.card-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.2),
+    0 0 0 2px rgba(211, 150, 140, 0.5),
+    0 0 24px rgba(59, 130, 168, 0.25),
+    0 0 24px rgba(211, 150, 140, 0.2);
+}
+
+@keyframes orb-float {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  33% { transform: translate(15px, -20px) scale(1.05); opacity: 0.8; }
+  66% { transform: translate(-10px, 10px) scale(0.95); opacity: 0.5; }
+}
+
+.orb-float {
+  animation: orb-float 12s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-border {
+  position: relative;
+  background: linear-gradient(135deg, rgba(59, 130, 168, 0.4), rgba(211, 150, 140, 0.4));
+  background-size: 200% 200%;
+  animation: gradient-shift 6s ease infinite;
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 24px rgba(59, 130, 168, 0.5);
+}
+
+.btn-glow-pink:hover {
+  box-shadow: 0 0 24px rgba(211, 150, 140, 0.5);
+}
+
+/* Neon pink outline similar to nav glow, for hero buttons */
+.btn-neon-pink {
+  position: relative;
+}
+.btn-neon-pink::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 999px;
+  border: 1px solid rgba(211, 150, 140, 0);
+  box-shadow: 0 0 0 rgba(211, 150, 140, 0);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+.btn-neon-pink:hover::before {
+  border-color: rgba(211, 150, 140, 0.95);
+  box-shadow: 0 0 18px rgba(211, 150, 140, 0.95);
+}
+
+.accent-line {
+  width: 4px;
+  background: linear-gradient(180deg, #3B82A8, #D3968C);
+  border-radius: 2px;
+}
+
+/* Squarespace-style abstract shape movement – slow, subtle drift */
+@keyframes shape-float-slow {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(8px, -12px) rotate(1deg); }
+  50% { transform: translate(-6px, 6px) rotate(-0.5deg); }
+  75% { transform: translate(10px, 8px) rotate(0.5deg); }
+}
+
+@keyframes shape-float-medium {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(-10px, -8px) rotate(-1deg); }
+  66% { transform: translate(6px, 10px) rotate(1deg); }
+}
+
+.shape-float-slow {
+  animation: shape-float-slow 22s ease-in-out infinite;
+}
+
+.shape-float-medium {
+  animation: shape-float-medium 18s ease-in-out infinite;
+}
