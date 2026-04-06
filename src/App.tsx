@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage'
 import ProjectDetailPage from './pages/ProjectDetailPage'
 import ProjectsPage from './pages/ProjectsPage'
 import ResumePage from './pages/ResumePage'
+import ResearchNotesPage from './pages/ResearchNotesPage'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               <Route path="resume" element={<ResumePage />} />
               <Route path="projects" element={<ProjectsPage />} />
               <Route path="projects/:id" element={<ProjectDetailPage />} />
+              <Route path="research-notes" element={<ResearchNotesPage />} />
             </Route>
           </Routes>
         </BrowserRouter>

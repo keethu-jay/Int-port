@@ -323,32 +323,46 @@ export default function ProjectDetailPage() {
 
           {/* SAFELAW-specific related research links */}
           {project.id === 'safelaw' && (
-            <section className="mt-8 rounded-2xl border border-ink-light/50 bg-ink-dark/70 p-4">
-              <h2 className="font-display text-lg font-semibold text-primary-blue">
-                Related research
-              </h2>
-              <ul className="mt-3 space-y-2 text-sm text-page-muted">
-                <li>
-                  <a
-                    href="https://dl.acm.org/doi/10.1145/3706598.3713974"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary-pink hover:underline"
-                  >
-                    CorpusStudios: Authorial Workflows for Controlling Legal AI Systems
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://arxiv.org/abs/2401.10873"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary-pink hover:underline"
-                  >
-                    GP-TSM: An AI-Resilient Text Rendering Technique for Reading and Skimming Documents
-                  </a>
-                </li>
-              </ul>
+            <section className="mt-8 space-y-4">
+              <div className="rounded-2xl border border-ink-light/50 bg-ink-dark/70 p-4">
+                <h2 className="font-display text-lg font-semibold text-primary-blue">
+                  Related research
+                </h2>
+                <ul className="mt-3 space-y-3 text-sm text-page-muted">
+                  <li>
+                    <a
+                      href="https://dl.acm.org/doi/10.1145/3706598.3713974"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-primary-pink hover:underline"
+                    >
+                      CorpusStudio: Surfacing Emergent Patterns in a Corpus of Prior Work while Writing
+                    </a>
+                    <span className="block mt-1 text-xs text-page-muted/90">
+                      Hai Dang, Chelse Swoopes, Daniel Buschek, Elena Glassman — CHI 2025
+                    </span>
+                  </li>
+                  <li>
+                    <a
+                      href="https://arxiv.org/abs/2401.10873"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-medium text-primary-pink hover:underline"
+                    >
+                      An AI-Resilient Text Rendering Technique for Reading and Skimming Documents
+                    </a>
+                    <span className="block mt-1 text-xs text-page-muted/90">
+                      Ziwei Gu, Ian Arawjo, Kenneth Li, Jonathan Kummerfeld, Elena Glassman — CHI 2024
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <Link
+                to="/research-notes"
+                className="inline-flex items-center gap-2 rounded-xl border border-primary-blue/50 bg-primary-blue/10 px-4 py-3 text-sm font-semibold text-primary-blue hover:bg-primary-blue/20 transition-colors"
+              >
+                Read: When high similarity scores are a red flag →
+              </Link>
             </section>
           )}
 

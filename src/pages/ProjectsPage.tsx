@@ -123,7 +123,7 @@ export default function ProjectsPage() {
                         <div className="flex w-full flex-col justify-between gap-2 md:w-1/3">
                           <p className="text-xs text-page-on-green/90 leading-snug">
                             {project.id === 'safelaw'
-                              ? 'Watch SAFELAW walk through a legal RAG pipeline that anchors LLM outputs in real case law.'
+                              ? 'Watch SAFELAW: UK judgments via the National Archives API, Kanon-2 + pgvector on Supabase, and retrieval evaluated with legal experts.'
                               : 'See the VisOps dashboard simulate real‑time training metrics and human‑in‑the‑loop tuning.'}
                           </p>
                           <div className="mt-1 flex flex-wrap gap-2">

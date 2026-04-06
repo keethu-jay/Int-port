@@ -31,9 +31,19 @@ export const PROJECTS: Project[] = [
   {
     id: 'safelaw',
     title: 'SAFELAW: RAG-Based Legal Analysis Framework',
-    description: 'Retrieval‑augmented legal analysis framework that grounds LLM outputs in case law while enforcing fairness and transparency constraints.',
+    description:
+      'SAFELAW is a full-stack RAG platform built for UK judges over three academic terms at WPI, developed under an interdisciplinary team of professors from WPI, Maynooth University, and Stanford, with additional advising from Harvard researchers. The system ingests UK Supreme Court and Upper Tribunal judgments via the National Archives API, embeds them using Kanon-2 (ranked first on the Massive Legal Embedding Benchmark for UK law), and surfaces contextually relevant precedents as judges draft opinions. The report is currently under a one-year embargo pending citation in upcoming faculty research.',
     thumbnail: safelawCover,
-    tech: ['Python', 'RAG', 'LLMs', 'NLP', 'Vector DB', 'LangChain'],
+    tech: [
+      'Python',
+      'React',
+      'Supabase',
+      'pgvector',
+      'LangChain',
+      'OpenAI API',
+      'Kanon-2 (legal embedding model)',
+      'UK National Archives API',
+    ],
     techMdUrl: '/projects/safelaw/tech.md',
     demoUrl: safelawVideo,
     hasVideoDemo: true,

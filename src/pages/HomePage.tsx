@@ -46,6 +46,18 @@ export default function HomePage() {
             Portfolio
           </Link>
         </div>
+        <p className="pt-8 text-sm text-white/90 max-w-xl mx-auto">
+          <Link
+            to="/research-notes"
+            className="underline decoration-white/50 underline-offset-4 hover:decoration-white hover:text-white transition-colors"
+          >
+            Research notes
+          </Link>
+          {' — '}
+          <span className="text-white/80">
+            When high similarity scores are a red flag (legal RAG, SAFELAW)
+          </span>
+        </p>
       </motion.div>
     </section>
   )
